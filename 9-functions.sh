@@ -2,18 +2,23 @@
 
 USERID=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
 VALIDATE (){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is failed"
+        echo -e "$2 is $R failed $N"
+        exit 1
     else 
-        echo "$2 is successfull"
+        echo "$2 is $G successfull $N"
     fi
 }
 
 if [ $USERID -ne 0 ]
 then
-    echo "Please run this script with root privelages"
+    echo -e "$R Please run this script with root privelages $N"
     exit 1
 fi
 
