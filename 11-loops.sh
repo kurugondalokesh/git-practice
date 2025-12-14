@@ -24,6 +24,12 @@ CHECKROOT
 
 for package in $@
 do  
-    dnf install $package -y
-    VALIDATE $? $package
+    dnf list installed $package
+    if [$? -ne 0]
+    then
+        echo "$package is not installed going to install it"
+        dnf install $package -y
+        VALIDATE $?
+    else
+        echo "$package already installed" 
 done
