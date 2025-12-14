@@ -32,4 +32,5 @@ do
         VALIDATE $?
     else
         echo "$package already installed" 
+    fi
 done
