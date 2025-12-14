@@ -24,5 +24,5 @@ CHECKROOT
 
 for package in $@
 do  
-    echo "$package"
+    echo dnf install $package -y
 done
