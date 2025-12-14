@@ -25,5 +25,5 @@ CHECKROOT
 for package in $@
 do  
     dnf install $package -y
-    VALIDATE $?
+    VALIDATE $? $package
 done
