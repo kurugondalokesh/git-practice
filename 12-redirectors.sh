@@ -32,14 +32,14 @@ CHECKROOT
 
 for package in $@
 do  
-    dnf list installed $package
+    dnf list installed $package &>>$LOGS_FILE
     if [ $? -ne 0 ]
     then
-        echo "$package is not installed going to install it"
-        dnf install $package -y
+        echo "$package is not installed going to install it" &>>$LOGS_FILE
+        dnf install $package -y &>>$LOGS_FILE
         VALIDATE $? $package &>> $LOGS_FILE
 
     else
-        echo "$package already installed" 
+        echo "$package already installed" &>>$LOGS_FILE
     fi
 done
