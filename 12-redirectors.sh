@@ -4,7 +4,7 @@ LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
-mkdir $LOGS_FOLDER &>>$LOGS_FILE
+#mkdir $LOGS_FOLDER &>>$LOGS_FILE
 
 
 USERID=$(id -u)
@@ -27,7 +27,7 @@ VALIDATE (){
     fi
 }
 
-echo "Script started at : $(date)" &>>$LOGS_FILE
+echo "Script started at : $(date)" | tee -a &>>$LOGS_FILE
 
 CHECKROOT
 
