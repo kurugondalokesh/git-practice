@@ -29,7 +29,7 @@ do
     then
         echo "$package is not installed going to install it"
         dnf install $package -y
-        VALIDATE $?
+        VALIDATE $? $package
     else
         echo "$package already installed" 
     fi
