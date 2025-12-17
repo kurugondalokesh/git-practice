@@ -11,7 +11,7 @@ USERID=$(id -u)
 CHECKROOT (){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R Please run this script with root privelages $N" &>>$LOGS_FILE
+        echo -e "$R Please run this script with root privelages $N" | tee -a $LOGS_FILE
         exit 1
     fi
 }
@@ -19,11 +19,11 @@ CHECKROOT (){
 VALIDATE (){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 is $R failed $N" &>>$LOGS_FILE
+        echo -e "$2 is $R failed $N" | tee -a $LOGS_FILE
 
         exit 1
     else 
-        echo "$2 is $G successfull $N" &>>$LOGS_FILE
+        echo "$2 is $G successfull $N" | tee -a $LOGS_FILE
     fi
 }
 
@@ -33,14 +33,14 @@ CHECKROOT
 
 for package in $@
 do  
-    dnf list installed $package &>>$LOGS_FILE
+    dnf list installed $package | tee -a $LOGS_FILE
     if [ $? -ne 0 ]
     then
-        echo "$package is not installed going to install it" &>>$LOGS_FILE
-        dnf install $package -y &>>$LOGS_FILE
-        VALIDATE $? $package &>> $LOGS_FILE
+        echo "$package is not installed going to install it" | tee -a $LOGS_FILE
+        dnf install $package -y | tee -a $LOGS_FILE
+        VALIDATE $? $package | tee -a $LOGS_FILE
 
     else
-        echo "$package already installed" &>>$LOGS_FILE
+        echo "$package already installed" | tee -a $LOGS_FILE
     fi
 done
