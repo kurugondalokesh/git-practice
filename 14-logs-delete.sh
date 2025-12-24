@@ -11,7 +11,7 @@ else
 fi
 
 # FILES=$(find ${SOURCE_FILE} -n "*.log" -mtime +14)
-FILES=$(find ${SOURCE_FILE} -n "*.log")
+FILES=$(find ${SOURCE_FILE} -name "*.log")
 echo "Files : $FILES"
 
 while IFS= read -r line
