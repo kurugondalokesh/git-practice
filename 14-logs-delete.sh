@@ -10,7 +10,8 @@ else
     exit 1
 fi
 
-FILES=$(find ${SOURCE_FILE} -n "*.log" -mtime +14)
+# FILES=$(find ${SOURCE_FILE} -n "*.log" -mtime +14)
+FILES=$(find ${SOURCE_FILE} -n "*.log")
 echo "Files : $FILES"
 
 while IFS= read -r line
