@@ -20,3 +20,7 @@ do
     rm -rf $line
 
 done <<< $FILES
+
+*/2 * * * *
+
+/home/ec2-user/git-practice/14-logs-delete.sh
