@@ -35,7 +35,7 @@ then
     if [ -f $ZIP_FILE ]
     then
         echo "Successfully zipped files"
-        
+
         while IFS= read -r line
         do
             echo "Deleting line : $line"
@@ -44,6 +44,7 @@ then
 
     else 
         echo "Files not zipped"
+        exit 1
     fi
 else
     echo "No files found"
