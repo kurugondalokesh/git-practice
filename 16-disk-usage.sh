@@ -11,5 +11,6 @@ do
     if [ $USAGE -ge $DISK_THRESHOLD]
     then
         echo "$PARTITION is more than $DISK_THRESHOLD, current usage : $USAGE "
+    fi
 
 done <<< $DISK_USAGE 
